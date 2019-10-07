@@ -49,6 +49,34 @@ class Book{
         }  
         return $listbook;
     }
+    static function addToFile($value){
+        $myfile = fopen("./data/book.txt", "a") or die("Unable to open file!");
+        fwrite($myfile, $value."\n");
+        fclose($myfile);
+    }
+    static function deleteItem($arr,$id){
+        $myfile = fopen("./data/book.txt", "w") or die("Unable to open file!");
+        unset($arr[$id]);
+        foreach ($arr as $key => $value) {
+            $str = $value->id."#".$value->title."#".$value->price."#".$value->author."#".$value->year;
+            fwrite($myfile, $str);
+        }
+        fclose($myfile);
+    }
+    static function editItem($newItem,$arr){
+        $myfile = fopen("./data/book.txt", "w") or die("Unable to open file!");
+        foreach ($arr as $key => $value) {
+            if($value->id === $newItem->id){
+                $value->title = $newItem->title;
+                $value->price = $newItem->price;
+                $value->author = $newItem->author;
+                $value->year = $newItem->year;    
+            }
+            $str = $value->id."#".$value->title."#".$value->price."#".$value->author."#".$value->year;
+            fwrite($myfile, $str);
+        }
+        fclose($myfile);
+    }
 }
 
 ?>
