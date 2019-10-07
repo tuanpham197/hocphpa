@@ -85,7 +85,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Year:</label>
-                                <input type="date" class="form-control" id="pwd" name="year">
+                                <?php 
+                                    $date =  date("Y");
+                                    $pre = $date - 10;
+                                ?>
+                                <select multiple class="form-control" name="year" id="year">
+                                    <?php for($i = $date;$i>=$pre;$i--){ ?>
+                                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <button class="btn btn-primary" type="submit" name="submit">Thêm</button>
                         </form>
