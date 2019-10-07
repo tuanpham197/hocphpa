@@ -31,7 +31,6 @@
     }
     $lsFromFile = Book::getListFromFile();
     if(!empty($_REQUEST['search'])){
-        echo "â";
         $result = array();
         $search = $_REQUEST['search'];
         foreach ($lsFromFile as $key => $value) {
