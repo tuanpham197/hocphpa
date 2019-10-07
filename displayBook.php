@@ -19,16 +19,7 @@
             Book::deleteItem(Book::getListFromFile(),$_REQUEST['id']);
         }
     } 
-    if(!empty($_REQUEST['search'])){
-        $result = array();
-        $search = $_REQUEST['search'];
-        foreach ($lsFromFile as $key => $value) {
-            if(strlen(strstr($value->year, $search)) || strlen(strstr(strtolower($value->title), strtolower($search))) ||
-            strlen(strstr(strtolower($value->author), strtolower($search)))){
-                array_push($result,$value);
-            }
-        }
-    }
+    
     if(isset($_REQUEST['edit'])){
         $id    = $_REQUEST['id'];
         $title = $_REQUEST['title'];
@@ -39,7 +30,17 @@
         Book::editItem($book,Book::getListFromFile());
     }
     $lsFromFile = Book::getListFromFile();
-
+    if(!empty($_REQUEST['search'])){
+        echo "â";
+        $result = array();
+        $search = $_REQUEST['search'];
+        foreach ($lsFromFile as $key => $value) {
+            if(strlen(strstr($value->year, $search)) || strlen(strstr(strtolower($value->title), strtolower($search))) ||
+            strlen(strstr(strtolower($value->author), strtolower($search)))){
+                array_push($result,$value);
+            }
+        }
+    }
 ?>
     <div class="container">
         <div class="row">
