@@ -171,8 +171,8 @@
                                         <input type="text" class="form-control" id="author" name="author">
                                     </div>
                                     <div class="form-group">
-                                        <label for="pwd">Year:</label>
-                                        <input type="text" class="form-control" id="year" name="year">
+                                        <label for="pwd">year:</label>
+                                        <input type="text" class="form-control" id="yeare" name="yeare">
                                     </div>
                                     <button class="btn btn-primary" type="submit" name="edit">Sửa</button>
                                 </form>
