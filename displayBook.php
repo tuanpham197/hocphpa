@@ -3,6 +3,9 @@
 <?php include_once('dropdown.php') ?>
 <?php 
     include_once("model/book.php");
+    $size =3;
+    $len = count(Book::getListFromFile());
+    
 
     if(isset($_REQUEST['submit'])){
         $id = count(Book::getListFromFile());
@@ -39,6 +42,20 @@
                 array_push($result,$value);
             }
         }
+    }
+
+    $page = 1;
+    if(isset($_REQUEST['page'])){
+        $page = $_REQUEST['page'];
+    }
+    
+    $from = $size*($page-1);// 0 ,3, 6
+    $to = ($size*$page) -1 ; // 2,5,8
+    $arrPagi = array();
+    for($i=$from;$i<=$to;$i++){
+        if($i > count($lsFromFile)-1)
+            break;
+        array_push($arrPagi,$lsFromFile[$i]);
     }
 ?>
     <div class="container">
@@ -124,7 +141,7 @@
                             $arr = $result;
                         }
                         else{
-                            $arr = $lsFromFile;
+                            $arr = $arrPagi;
                         }
                         foreach ($arr as $key => $value) {         
                     ?>
@@ -187,8 +204,22 @@
                 </tbody>
             </table>
         </div>
-    </div>
+        <div class="row">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <?php 
+                    $numPage = $len/$size;
+                    for($i=1;$i<=ceil($numPage);$i++){
+                ?>
 
+                <li class="page-item"><a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                <?php
+                    }
+                ?>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
 <?php include_once('footer.php') ?>
 
 
