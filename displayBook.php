@@ -155,7 +155,7 @@
                             <a href="" onclick="func(this)" class="btn btn-outline-success" data-toggle="modal" data-target="#myModalEdit" id="edit" eid="<?php echo $value->id ?>" etitle="<?php echo $value->title ?>" eauthor="<?php echo $value->author ?>" eyear="<?php echo $value->year ?>" eprice="<?php echo $value->price ?>"><i class="fas fa-edit"></i>Sửa</a> 
                         </td>
                         <td>
-                            <a href="displayBook.php?action=xoa&&id=<?php echo $key ?>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>Xóa</a> 
+                            <a href="displayBook.php?action=xoa&&id=<?php echo $value->id ?>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>Xóa</a> 
                         </td>
                     </tr>
                     <?php  }?>

@@ -56,7 +56,8 @@ class Book{
     }
     static function deleteItem($arr,$id){
         $myfile = fopen("./data/book.txt", "w") or die("Unable to open file!");
-        unset($arr[$id]);
+        $item = array_search($id, array_column($arr, 'id'));
+        unset($arr[$item]);
         foreach ($arr as $key => $value) {
             $str = $value->id."#".$value->title."#".$value->price."#".$value->author."#".$value->year;
             fwrite($myfile, $str);
