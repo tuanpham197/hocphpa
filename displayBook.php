@@ -28,7 +28,7 @@
         $title = $_REQUEST['title'];
         $price = $_REQUEST['price'];
         $author= $_REQUEST['author'];
-        $year  = $_REQUEST['year'];
+        $year  = $_REQUEST['yeare'];
         $book = new Book($id,$price,$title,$author,$year);
         Book::editItem($book,Book::getListFromFile());
     }
@@ -101,16 +101,8 @@
                                 <input type="text" class="form-control" id="pwd" name="author">
                             </div>
                             <div class="form-group">
-                                <label for="pwd">Year:</label>
-                                <?php 
-                                    $date =  date("Y");
-                                    $pre = $date - 10;
-                                ?>
-                                <select multiple class="form-control" name="year" id="year">
-                                    <?php for($i = $date;$i>=$pre;$i--){ ?>
-                                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                                    <?php } ?>
-                                </select>
+                                <label for="pwd">year:</label>
+                                <input type="text" class="form-control" id="year" name="year">
                             </div>
                             <button class="btn btn-primary" type="submit" name="submit">Thêm</button>
                         </form>
