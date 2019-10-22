@@ -51,6 +51,16 @@
                     <span>Bai so 5</span></a>
                 </li>
                 <li class="nav-item">
+                <a class="nav-link" href="baiso6.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Bai so 6</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="baitap.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Bai tap</span></a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link" href="displayBook.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>List Book</span></a>

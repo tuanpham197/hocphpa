@@ -1,11 +1,11 @@
 <?php
     class User{
-        var $usernamme;
+        var $username;
         var $password;
         var $fullname;
 
-        function __construct($usernamme,$password,$fullname) {
-            $this->usernamme = $usernamme;
+        function __construct($username,$password,$fullname) {
+            $this->username = $username;
             $this->password = $password;
             $this->fullname = $fullname;
         }

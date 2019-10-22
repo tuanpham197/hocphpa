@@ -198,7 +198,7 @@
         </div>
         <div class="row">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="?page=<?php if($page > 1) echo $page-1; else echo 1; ?>">Previous</a></li>
                 <?php 
                     $numPage = $len/$size;
                     for($i=1;$i<=ceil($numPage);$i++){
