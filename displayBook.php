@@ -4,7 +4,7 @@
 <?php 
     include_once("model/book.php");
     $size =3;
-    $len = count(Book::getListFromFile());
+    $len = count(Book::getListFromDB());
     
 
     if(isset($_REQUEST['submit'])){
@@ -15,11 +15,11 @@
         $year = $_REQUEST['year'];
 
         $val = $id."#".$title."#".$price."#".$author."#".$year;
-        Book::addToFile($val);
+        Book::addToFile($title,$price,$author,$year);
     }
     if(isset($_REQUEST['action'])){
         if(strcmp($_REQUEST['action'],"xoa")==0){
-            Book::deleteItem(Book::getListFromFile(),$_REQUEST['id']);
+            Book::deleteItem($_REQUEST['id']);
         }
     } 
     
@@ -29,10 +29,12 @@
         $price = $_REQUEST['price'];
         $author= $_REQUEST['author'];
         $year  = $_REQUEST['yeare'];
-        $book = new Book($id,$price,$title,$author,$year);
-        Book::editItem($book,Book::getListFromFile());
+        $book = new Book($id,$title,$price,$author,$year);
+        Book::editItem($book);
     }
-    $lsFromFile = Book::getListFromFile();
+    //$lsFromFile = Book::getListFromFile();
+
+    $lsFromFile = Book::getListFromDB();
     if(!empty($_REQUEST['search'])){
         $result = array();
         $search = $_REQUEST['search'];
